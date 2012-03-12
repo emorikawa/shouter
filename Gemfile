@@ -8,6 +8,10 @@ gem 'clearance'
 
 gem 'sqlite3'
 
+group :test do
+  gem 'rspec-rails' #rspec is a dependency of rspec-rails
+  gem 'factory_girl_rails' #factory_girl is a dependency
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
