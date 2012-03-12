@@ -12,6 +12,7 @@ gem 'sqlite3'
 group :test do
   gem 'rspec-rails' #rspec is a dependency of rspec-rails
   gem 'factory_girl_rails' #factory_girl is a dependency
+  gem 'bourne' #Provides spies with Mocha and Bourne
 end
 
 # Gems used only for assets and not required
