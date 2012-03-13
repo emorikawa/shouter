@@ -5,7 +5,14 @@ FactoryGirl.define do
   end
 
   factory :text_shout do
-    body "some text"
+    body "FooBar"
+    shout
+  end
+
+  factory :photo_shout do
+    photo_file_name "My FooBar File"
+    photo_content_type "image/jpeg"
+    photo_file_size 5000000
     shout
   end
 end
