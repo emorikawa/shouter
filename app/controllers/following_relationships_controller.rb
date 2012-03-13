@@ -4,6 +4,7 @@ class FollowingRelationshipsController < ApplicationController
     # current_user.following_relationships.create(followed_user: user)
     # It'd be nicer if we did something like the following:
     current_user.follow(user)
+    FollowingMailer.followed_notification(current_user, user).deliver
     redirect_to user, notice: "Now following"
   end
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @shouts = @user.shouts.current
+    @shouts = ShoutFeed.new(@user.id).shouts
   end
 end

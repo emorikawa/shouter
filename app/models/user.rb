@@ -3,12 +3,21 @@ class User < ActiveRecord::Base
   has_many :shouts
 
   # This is how to access the relationship
-  has_many :following_relationships, foreign_key: "following_user_id"
+  has_many :followed_user_relationships, foreign_key: "following_user_id", class_name: "FollowingRelationship"
   # To access the actual users themseleves, we need a has_many_throught
-  has_many :followed_users, through: :following_relationships
+  has_many :followed_users, through: :followed_user_relationships
+
+  # We're going to need a different relationship to describe what's going on here.
+  has_many :following_user_relationships, foreign_key: "followed_user_id", class_name:"FollowingRelationship"
+  has_many :followers, through: :following_user_relationships, source: :following_user
 
   # ALWAYS use attr_accessible
   attr_accessible :email, :password
+
+  # Since it's chronologically ordered and belongs to the user.
+  def shout_feed
+    ShoutFeed.new self_and_followed_user_ids
+  end
 
   def create_shout(medium)
     # A constructed object should be passed into here

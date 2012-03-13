@@ -13,6 +13,7 @@ group :test do
   gem 'rspec-rails' #rspec is a dependency of rspec-rails
   gem 'factory_girl_rails' #factory_girl is a dependency
   gem 'bourne' #Provides spies with Mocha and Bourne
+  gem 'email_spec' # Gives extra mailer helpers
 end
 
 # Gems used only for assets and not required
